@@ -13,10 +13,10 @@ def main():
 
     cv2.namedWindow('Trackbar')
 
-    cv2.createTrackbar('min H', 'Trackbar', 0, 360, nothing)
+    cv2.createTrackbar('min H', 'Trackbar', 0, 255, nothing)
     cv2.createTrackbar('min S', 'Trackbar', 0, 255, nothing)
     cv2.createTrackbar('min V', 'Trackbar', 0, 255, nothing)
-    cv2.createTrackbar('max H', 'Trackbar', 0, 360, nothing)
+    cv2.createTrackbar('max H', 'Trackbar', 0, 255, nothing)
     cv2.createTrackbar('max S', 'Trackbar', 0, 255, nothing)
     cv2.createTrackbar('max V', 'Trackbar', 0, 255, nothing)
 
@@ -37,8 +37,8 @@ def main():
 
         mask_frame = cv2.inRange(hsv_frame, min_p, max_p)
         result_frame = cv2.bitwise_and(frame, frame, mask=mask_frame)
-
-        cv2.imshow('Pioneer', result_frame)
+        cv2.imshow('Binarization', result_frame)
+        cv2.imshow('Original frame', frame)
 
         if cv2.waitKey(1) == ord('q'):
             break
