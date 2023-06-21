@@ -9,7 +9,6 @@ def nothing():
 
 def main():
     cam = Camera()
-    pioneer = Pioneer()
 
     cv2.namedWindow('Trackbar')
 
